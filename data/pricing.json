@@ -1,0 +1,12 @@
+{
+  "endpoints": {
+    "gemini-2.5-pro-tts/text_to_speech": {
+      "input_price_per_1m_cents": 140,
+      "output_price_per_1m_cents": 2800
+    },
+    "gemini-3.1-flash-tts/text_to_speech": {
+      "input_price_per_1m_cents": 140,
+      "output_price_per_1m_cents": 2800
+    }
+  }
+}

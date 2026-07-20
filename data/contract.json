@@ -1,0 +1,311 @@
+{
+  "catalog_models": [
+    "gemini-2.5-pro-tts",
+    "gemini-3.1-flash-tts"
+  ],
+  "actions": {
+    "gemini-tts/text-to-speech": {
+      "model": "Gemini TTS",
+      "endpoint": "text_to_speech",
+      "task_type": "asynchronous",
+      "models": [
+        "gemini-2.5-pro-tts",
+        "gemini-3.1-flash-tts"
+      ],
+      "fields_by_model": {
+        "gemini-2.5-pro-tts": {
+          "model": {
+            "type": "string",
+            "required": true,
+            "description": "Model slug."
+          },
+          "temperature": {
+            "type": "number",
+            "max": 2,
+            "min": 0,
+            "default": 1,
+            "description": "Sampling temperature."
+          },
+          "scene": {
+            "type": "string",
+            "description": "Scene and recording environment."
+          },
+          "sample_context": {
+            "type": "string",
+            "description": "Overall delivery context and tone."
+          },
+          "speakers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "pace": {
+                  "enum": [
+                    "Natural",
+                    "Rapid Fire",
+                    "The Drift",
+                    "Staccato"
+                  ],
+                  "type": "string",
+                  "required": true,
+                  "description": "Speaker pace."
+                },
+                "style": {
+                  "enum": [
+                    "Vocal Smile",
+                    "Newscaster",
+                    "Whisper",
+                    "Empathetic",
+                    "Promo/Hype",
+                    "Deadpan"
+                  ],
+                  "type": "string",
+                  "required": true,
+                  "description": "Speaker delivery style."
+                },
+                "accent": {
+                  "enum": [
+                    "Neutral",
+                    "American (Gen)",
+                    "American (Valley)",
+                    "American (South)",
+                    "British (RP)",
+                    "British (Brixton)",
+                    "Transatlantic",
+                    "Australian"
+                  ],
+                  "type": "string",
+                  "required": true,
+                  "description": "Speaker accent."
+                },
+                "speaker_id": {
+                  "type": "string",
+                  "pattern": "^Speaker [1-9][0-9]*$",
+                  "required": true,
+                  "description": "Unique identifier in Speaker N format."
+                },
+                "voice_name": {
+                  "enum": [
+                    "Achernar",
+                    "Achird",
+                    "Algenib",
+                    "Algieba",
+                    "Alnilam",
+                    "Aoede",
+                    "Autonoe",
+                    "Callirrhoe",
+                    "Charon",
+                    "Despina",
+                    "Enceladus",
+                    "Erinome",
+                    "Fenrir",
+                    "Gacrux",
+                    "Iapetus",
+                    "Kore",
+                    "Laomedeia",
+                    "Leda",
+                    "Orus",
+                    "Puck",
+                    "Pulcherrima",
+                    "Rasalgethi",
+                    "Sadachbia",
+                    "Sadaltager",
+                    "Schedar",
+                    "Sulafat",
+                    "Umbriel",
+                    "Vindemiatrix",
+                    "Zephyr",
+                    "Zubenelgenubi"
+                  ],
+                  "type": "string",
+                  "required": true,
+                  "description": "Preset voice name."
+                },
+                "audio_profile": {
+                  "type": "string",
+                  "description": "Optional voice character guidance."
+                }
+              }
+            },
+            "required": true,
+            "min_items": 1,
+            "description": "Non-empty speaker configurations with unique Speaker N identifiers."
+          },
+          "dialogue_turns": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "max": 10000,
+                  "type": "string",
+                  "length": true,
+                  "required": true,
+                  "description": "Spoken text, up to 10,000 characters."
+                },
+                "speaker_id": {
+                  "type": "string",
+                  "required": true,
+                  "description": "Identifier matching a configured speakers[].speaker_id."
+                }
+              }
+            },
+            "required": true,
+            "min_items": 1,
+            "description": "Non-empty ordered dialogue turns whose speaker ids reference configured speakers."
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "Webhook URL for async notifications."
+          }
+        },
+        "gemini-3.1-flash-tts": {
+          "model": {
+            "type": "string",
+            "required": true,
+            "description": "Model slug."
+          },
+          "temperature": {
+            "type": "number",
+            "max": 2,
+            "min": 0,
+            "default": 1,
+            "description": "Sampling temperature."
+          },
+          "scene": {
+            "type": "string",
+            "description": "Scene and recording environment."
+          },
+          "sample_context": {
+            "type": "string",
+            "description": "Overall delivery context and tone."
+          },
+          "speakers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "pace": {
+                  "enum": [
+                    "Natural",
+                    "Rapid Fire",
+                    "The Drift",
+                    "Staccato"
+                  ],
+                  "type": "string",
+                  "required": true,
+                  "description": "Speaker pace."
+                },
+                "style": {
+                  "enum": [
+                    "Vocal Smile",
+                    "Newscaster",
+                    "Whisper",
+                    "Empathetic",
+                    "Promo/Hype",
+                    "Deadpan"
+                  ],
+                  "type": "string",
+                  "required": true,
+                  "description": "Speaker delivery style."
+                },
+                "accent": {
+                  "enum": [
+                    "Neutral",
+                    "American (Gen)",
+                    "American (Valley)",
+                    "American (South)",
+                    "British (RP)",
+                    "British (Brixton)",
+                    "Transatlantic",
+                    "Australian"
+                  ],
+                  "type": "string",
+                  "required": true,
+                  "description": "Speaker accent."
+                },
+                "speaker_id": {
+                  "type": "string",
+                  "pattern": "^Speaker [1-9][0-9]*$",
+                  "required": true,
+                  "description": "Unique identifier in Speaker N format."
+                },
+                "voice_name": {
+                  "enum": [
+                    "Achernar",
+                    "Achird",
+                    "Algenib",
+                    "Algieba",
+                    "Alnilam",
+                    "Aoede",
+                    "Autonoe",
+                    "Callirrhoe",
+                    "Charon",
+                    "Despina",
+                    "Enceladus",
+                    "Erinome",
+                    "Fenrir",
+                    "Gacrux",
+                    "Iapetus",
+                    "Kore",
+                    "Laomedeia",
+                    "Leda",
+                    "Orus",
+                    "Puck",
+                    "Pulcherrima",
+                    "Rasalgethi",
+                    "Sadachbia",
+                    "Sadaltager",
+                    "Schedar",
+                    "Sulafat",
+                    "Umbriel",
+                    "Vindemiatrix",
+                    "Zephyr",
+                    "Zubenelgenubi"
+                  ],
+                  "type": "string",
+                  "required": true,
+                  "description": "Preset voice name."
+                },
+                "audio_profile": {
+                  "type": "string",
+                  "description": "Optional voice character guidance."
+                }
+              }
+            },
+            "required": true,
+            "min_items": 1,
+            "description": "Non-empty speaker configurations with unique Speaker N identifiers."
+          },
+          "dialogue_turns": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "max": 10000,
+                  "type": "string",
+                  "length": true,
+                  "required": true,
+                  "description": "Spoken text, up to 10,000 characters."
+                },
+                "speaker_id": {
+                  "type": "string",
+                  "required": true,
+                  "description": "Identifier matching a configured speakers[].speaker_id."
+                }
+              }
+            },
+            "required": true,
+            "min_items": 1,
+            "description": "Non-empty ordered dialogue turns whose speaker ids reference configured speakers."
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "Webhook URL for async notifications."
+          }
+        }
+      }
+    }
+  }
+}

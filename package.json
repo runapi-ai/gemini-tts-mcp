@@ -1,0 +1,71 @@
+{
+  "name": "@runapi.ai/gemini-tts-mcp",
+  "version": "0.1.0",
+  "description": "RunAPI Gemini TTS MCP server for audio generation: create tasks, poll results, and check pricing across 2 model variants from Claude Code, Codex, Cursor, and VS Code.",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "bin": {
+    "gemini-tts-mcp": "dist/bin/gemini-tts-mcp.js"
+  },
+  "files": [
+    "dist",
+    "data/contract.json",
+    "data/pricing.json",
+    "examples",
+    "server.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/index.ts",
+    "prepack": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "runapi",
+    "runapi-ai",
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "ai-agents",
+    "claude-code",
+    "cursor",
+    "vscode",
+    "gemini-tts",
+    "gemini-tts-mcp",
+    "gemini-tts-api",
+    "audio-generation",
+    "ai-audio",
+    "text-to-speech"
+  ],
+  "author": "RunAPI",
+  "license": "Apache-2.0",
+  "homepage": "https://runapi.ai/models/gemini-tts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runapi-ai/gemini-tts-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/runapi-ai/gemini-tts-mcp/issues"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@runapi.ai/mcp-core": "0.1.7",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "mcpName": "io.github.runapi-builder/gemini-tts-mcp"
+}

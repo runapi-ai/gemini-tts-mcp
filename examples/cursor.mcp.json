@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "gemini-tts": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@runapi.ai/gemini-tts-mcp"
+      ]
+    }
+  }
+}
