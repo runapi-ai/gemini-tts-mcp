@@ -47,7 +47,6 @@
                     "Staccato"
                   ],
                   "type": "string",
-                  "required": true,
                   "description": "Speaker pace."
                 },
                 "style": {
@@ -60,7 +59,6 @@
                     "Deadpan"
                   ],
                   "type": "string",
-                  "required": true,
                   "description": "Speaker delivery style."
                 },
                 "accent": {
@@ -75,7 +73,6 @@
                     "Australian"
                   ],
                   "type": "string",
-                  "required": true,
                   "description": "Speaker accent."
                 },
                 "speaker_id": {
@@ -193,7 +190,6 @@
                     "Staccato"
                   ],
                   "type": "string",
-                  "required": true,
                   "description": "Speaker pace."
                 },
                 "style": {
@@ -206,7 +202,6 @@
                     "Deadpan"
                   ],
                   "type": "string",
-                  "required": true,
                   "description": "Speaker delivery style."
                 },
                 "accent": {
@@ -221,7 +216,6 @@
                     "Australian"
                   ],
                   "type": "string",
-                  "required": true,
                   "description": "Speaker accent."
                 },
                 "speaker_id": {
